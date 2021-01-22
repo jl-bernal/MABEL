@@ -1,0 +1,3 @@
+#Covariance matrix for eBOSS DR16 QSOs BAO only
+0.63731604 0.1706891
+0.1706891 0.30468415

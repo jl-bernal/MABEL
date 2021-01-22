@@ -1,0 +1,5 @@
+#quantity, sigma
+#Values for the rd used
+#
+#From Planck collaboration assuming LCDMD
+147.09 0.26

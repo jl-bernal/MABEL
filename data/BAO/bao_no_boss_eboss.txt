@@ -1,0 +1,28 @@
+# z, quantity, sigma (0 if external covariance)
+#
+#TYPE LIST:
+#	0: rs/D_V (6DF)
+# 	1: D_V/rs (SDSS DR7 MGS)
+#	2: D_V/rs (WiggleZ)
+#
+#
+# 6DF
+# Note that for 6DF, the rs_rescale factor was divided directly
+# into the numbers for the mean value and sigma. The rs_rescale
+# used is 1.0268, coming from
+# rs_EH98 = 153.94      (Eisenstein Hu 98 approximated value)
+# rs_CAMB = 149.92     (CAMB or CLASS, exact integrated value)
+# given the fiducial cosmology of 1106.3366v1, a flat LCDM with
+# Omega_m = 0.27, h = 0.7, omega_b = 0.02227
+# Note that the reduction of the error bar still rounds up to 0.015
+0.106   0.327   0.015    0
+#s
+#
+# SDSS DR7 MGS, Ross et al. 1409.3242v1
+0.15   4.47     0.16    1
+#
+# WIGGLE Z from Kazin et al. [1401.0358]
+0.44    11.6  0   2
+0.6     15.0  0   2
+0.73    16.9  0   2
+

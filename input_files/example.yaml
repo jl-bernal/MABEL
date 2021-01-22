@@ -1,0 +1,31 @@
+#---------------------------
+# Sampler related quantities
+#---------------------------
+sampler: zeus
+stepsize: 1.5
+nsteps: 10
+save_in_line: False
+#--------------------------
+# Expansion assumed
+#--------------------------
+expansion: flatLCDM
+flat: True
+zmax: 5.
+Nknots: 6
+z_knots: [0., 0.3, 0.6, 1., 1.5, 2.4]
+#-------------------------
+# Likelihoods 
+#-------------------------
+# Only needs to specify the ones to include
+lkls: 
+  H0prior: True
+  BAO: True
+  SN: True
+  Clocks: True
+#----------------------
+# Output and verbose
+#---------------------
+#output_root = output/[input file] if left unspecified
+output_root: output/test
+verbose_data: False
+verbose_run: False
