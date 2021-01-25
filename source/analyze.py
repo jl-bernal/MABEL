@@ -94,6 +94,7 @@ class Analyze(object):
         Prints the info about the MCMC run
         '''
         print(self.summary['data'])
+        print('Expansion model: {}'.format(self.expansion))
         if self.expansion == 'flexknot':
             print(self.summary['knots info'])
             print('Flat Universe?', self.summary['flat'])
