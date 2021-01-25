@@ -110,6 +110,7 @@ def check_params(input_params, default_params):
         if key == 'sampler':
             if input_params[key] != 'zeus' and input_params[key] != 'emcee':
                 raise AttributeError('Please, choose a sampler between zeus and emcee')
+    return
 
 
 def check_lkls(lkls):
@@ -119,6 +120,7 @@ def check_lkls(lkls):
     #Add here all the rules required
     if lkls['rdprior'] and not lkls['BAO']:
         raise AttributeError('Please use only a prior in rd ("rdprior" likelihood) when also using the "BAO" likelihood.')
+    return
         
 def check_zmax(self):
     '''
@@ -138,6 +140,7 @@ def check_zmax(self):
     if self.lkls['Clocks']:
         if self.zmax < np.max(self.data['Clocks'][0]):
             raise ValueError('You have input zmax = {}, but Clocks require zmax >= {}.'.format(self.zmax,np.max(self.data['Clocks'][0])))
+    return
         
         
 def gaussian(x,mu,sigma):
