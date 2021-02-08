@@ -16,7 +16,7 @@ def mabel(input_pars=None):
     '''
     Base function to initiate mabel objects. 
     
-    -input_pars:    String containing the path to a input file (*.yaml) or a
+    -input_pars:    String containing the path to an input file (*.yaml), or a
                     dictionary containing the input parameters. 
     '''
 

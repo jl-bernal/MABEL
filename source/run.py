@@ -39,26 +39,42 @@ class Run(object):
     ------------------
     
     sampler and MCMC options:
-        -sampler            choose between zeus and emcee samplers. (default: 
+        -sampler            choose between zeus and emcee samplers. (default: zeus)
+        
         -stepsize           stepsize for emcee (the "a" param in EnsembleSampler).
+                            Only relevant if sampler == emcee
                             (default: 1.5)
+                            
         -nsteps             Number of steps per walker (default: 5000)
+        
         -save_inline        Bool. Save the chain as it progresses? So far only available
                             if sampler == emcee (Default: True)
         
     expansion:
         -expansion          Kind of expansion history assumed. Choose between splines,
                             flexknot, or one of the following: 'flatLCDM','flatwCDM',
-                            'flatw0waCDM','LCDM',"wCDM","w0waCDM" (default: flatLCDDM)
+                            'flatw0waCDM','LCDM',"wCDM","w0waCDM" (default: flatLCDM)
+                            
         -flat               Bool. Whether the spatial section is flat or not. 
-                            (Default: True)
-        -zmax               Maximum z for flexknot expansion (default: 2.4)
-        -Nknots             Number of knots for flexknot expansion (default: 6)
-        -z_knots            Position of the knots for spline expansion 
+                            Only relevant if expansion == flexknot or spline 
+                            (the flatness for the standard cosmo models is determined
+                            by whether they are called 'flat*' or not (Default: True)
+                            
+        -zmax               Maximum z for flexknot expansion. Only relevant if 
+                            expansion == flexknot; zmax = z_knots[-1] if 
+                            expansion ==  spline, and zmax = 10 otherwise (default: 2.4)
+        
+        -Nknots             Number of knots for flexknot expansion. Only relvent
+                            if expansion == flexknot. Nknots = len(z_knots) for 
+                            expansion == spline, and irrelevant otherwise (default: 6)
+                            
+        -z_knots            Position of the knots for spline expansion.
+                            Only relevant if expansion == spline.
                             (default: [0.,0.3,0.6,1.,1.5,2.4])
     
     likelihoods:            which likelihoods to include. Bool. Default: All false
-        lkls                Dictionary including the bools for each likelihood. 
+        lkls                Dictionary including the bools for each likelihood.
+         
                             Components: 
                                 H0prior                     A prior on H0
                                 BAO                         BAO from SDSS, WiggleZ and 6dFGRS
@@ -72,7 +88,9 @@ class Run(object):
         output_root         Name of the root for store outputs. 
                             (Default: output/default or output/[input_file] if a file
                             is used)
-        verbose_data       Print info about reading data (Default: False)
+                            
+        verbose_data        Print info about reading data (Default: False)
+        
         verbose_run         Print info about the running and storing of the MCMC (Default: False)
                                 
     '''
