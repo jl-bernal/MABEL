@@ -69,7 +69,7 @@ Clone this repository and include the path to the main folder in your PYTHONPATH
 from mabel import mabel
 ```
 
-You can find examples of how to use MABEL, both for running and analyzing chains, in the `notebooks/` folder.
+You can find examples of how to use MABEL, both for running and analyzing chains, in the `example_notebooks/` folder.
 
 #### Prerequisites:
 
