@@ -123,17 +123,17 @@ def chi2_BAO(data,cov,self,DM,params):
     theo_vec = np.zeros(len(q))
     theo_vec[::2] = DM(z[::2])/rs
     theo_vec[1::2] = c_vel/(H_z(self,params,z[1::2])*rs)
-    chi2 += np.dot(theo_vec-q,np.dot(cov[3],theo_vec-q))
+    chi2 += np.dot(theo_vec-q,np.dot(cov[2],theo_vec-q))
     #eBOSS LRG
     z = data[3][0]
     q = data[3][1]
     theo_vec = np.zeros(len(q))
     theo_vec[0] = DM(z[0])/rs
     theo_vec[1] = c_vel/(H_z(self,params,z[1])*rs)
-    chi2 += np.dot(theo_vec-q,np.dot(cov[4],theo_vec-q))
+    chi2 += np.dot(theo_vec-q,np.dot(cov[3],theo_vec-q))
     #eBOSS ELGS
     z = data[4][0]
-    table = data[5][1]
+    table = data[4][1]
     theo_DV_over_rs = (DM(z)**2.*z*c_vel/(H_z(self,params,z)))**(1./3)/rs
     try:
         chi2 += -2 * np.log(table(theo_DV_over_rs))
@@ -145,7 +145,7 @@ def chi2_BAO(data,cov,self,DM,params):
     theo_vec = np.zeros(len(q))
     theo_vec[0] = DM(z[0])/rs
     theo_vec[1] = c_vel/(H_z(self,params,z[1])*rs)
-    chi2 += np.dot(theo_vec-q,np.dot(cov[6],theo_vec-q))
+    chi2 += np.dot(theo_vec-q,np.dot(cov[5],theo_vec-q))
     #eBOSS Lya auto
     z = data[6][0]
     table = data[6][1]
