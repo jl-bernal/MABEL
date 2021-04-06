@@ -46,7 +46,7 @@ def read_and_process_data(lkls):
         dataBAO = [] #z,q
         covBAO = [] #dq
 
-        #6dF, SDSS DR7 MGS, WiggleZ
+        #6dF, SDSS DR7 MGS
         #read the BAO file [z, q, dq, type]
         datafile = np.loadtxt(data_path+'/BAO/bao_no_boss_eboss.txt')
         tt = datafile[:,3]
@@ -58,10 +58,6 @@ def read_and_process_data(lkls):
         ind = np.where(tt==1)[0]
         dataBAO.append([datafile[ind,0],datafile[ind,1]])
         covBAO.append(datafile[ind,2])
-        
-        ind = np.where(tt==2)[0]
-        dataBAO.append([datafile[ind,0],datafile[ind,1]])
-        covBAO.append(np.loadtxt(data_path+'/BAO/WZ_invCOVMAT.txt'))
 
         #BOSS DR12
         datafile = np.loadtxt(data_path+'/BAO/boss_dr12_bao_only_2lowz.txt')

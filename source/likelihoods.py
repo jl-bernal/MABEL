@@ -120,27 +120,22 @@ def chi2_BAO(data,cov,self,DM,params):
     q = data[1][1]
     theo_DV = (DM(z)**2.*z*c_vel/(H_z(self,params,z)))**(1./3)
     chi2 += ((theo_DV/rs - q)/cov[1])**2.
-    #Wiggle Z
+    #BOSS DR12 #only first two bins (already cut in data file)
     z = data[2][0]
     q = data[2][1]
-    theo_vec = (DM(z)**2.*z*c_vel/(H_z(self,params,z)))**(1./3)
-    chi2 += np.dot(theo_vec/rs-q,np.dot(cov[2],theo_vec/rs-q))
-    #BOSS DR12 #only first two bins (already cut in data file)
-    z = data[3][0]
-    q = data[3][1]
     theo_vec = np.zeros(len(q))
     theo_vec[::2] = DM(z[::2])/rs
     theo_vec[1::2] = c_vel/(H_z(self,params,z[1::2])*rs)
     chi2 += np.dot(theo_vec-q,np.dot(cov[3],theo_vec-q))
     #eBOSS LRG
-    z = data[4][0]
-    q = data[4][1]
+    z = data[3][0]
+    q = data[3][1]
     theo_vec = np.zeros(len(q))
     theo_vec[0] = DM(z[0])/rs
     theo_vec[1] = c_vel/(H_z(self,params,z[1])*rs)
     chi2 += np.dot(theo_vec-q,np.dot(cov[4],theo_vec-q))
     #eBOSS ELGS
-    z = data[5][0]
+    z = data[4][0]
     table = data[5][1]
     theo_DV_over_rs = (DM(z)**2.*z*c_vel/(H_z(self,params,z)))**(1./3)/rs
     try:
@@ -148,15 +143,15 @@ def chi2_BAO(data,cov,self,DM,params):
     except:
         return np.inf
     #eBOSS QSO
-    z = data[6][0]
-    q = data[6][1]
+    z = data[5][0]
+    q = data[5][1]
     theo_vec = np.zeros(len(q))
     theo_vec[0] = DM(z[0])/rs
     theo_vec[1] = c_vel/(H_z(self,params,z[1])*rs)
     chi2 += np.dot(theo_vec-q,np.dot(cov[6],theo_vec-q))
     #eBOSS Lya auto
-    z = data[7][0]
-    table = data[7][1]
+    z = data[6][0]
+    table = data[6][1]
     theo_vec_DM_over_rs = DM(z)/rs
     theo_vec_DH_over_rs = c_vel/(H_z(self,params,z)*rs)
     try:
@@ -164,8 +159,8 @@ def chi2_BAO(data,cov,self,DM,params):
     except:
         return np.inf
     #eBOSS Lya x QSO
-    z = data[8][0]
-    table = data[8][1]
+    z = data[7][0]
+    table = data[7][1]
     theo_vec_DM_over_rs = DM(z)/rs
     theo_vec_DH_over_rs = c_vel/(H_z(self,params,z)*rs)
     try:

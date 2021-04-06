@@ -3,7 +3,6 @@
 #TYPE LIST:
 #	0: rs/D_V (6DF)
 # 	1: D_V/rs (SDSS DR7 MGS)
-#	2: D_V/rs (WiggleZ)
 #
 #
 # 6DF
@@ -20,9 +19,5 @@
 #
 # SDSS DR7 MGS, Ross et al. 1409.3242v1
 0.15   4.47     0.16    1
-#
-# WIGGLE Z from Kazin et al. [1401.0358]
-0.44    11.6  0   2
-0.6     15.0  0   2
-0.73    16.9  0   2
+
 
