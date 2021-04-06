@@ -42,7 +42,7 @@ Currently, MABEL includes the following likelihoods:
 
 - Clocks: H(z) measurements from cosmic clocks.
 
-- mock_highz_StrongLens_IFU: Mock data of the ratio between the distance to the source and the distance between the lense and the source in strong lensing system with IFU observations.
+We will include more likelihoods in the future.
 
 #### Including your own likelihood:
 
@@ -84,7 +84,7 @@ Besides standard packages as numpy, scipy, os, pandas and matplotlib, MABEL uses
 
 You are free to use MABEL in your research, but please refer to this GitHub repository and cite:
 
-- THE PAPER!!!
+- [The trouble beyond H0 and the new cosmic triangles. arXiv:2102.05066](https://arxiv.org/abs/2102.05066)
 - The references related to either [zeus](https://github.com/minaskar/zeus) or [emcee](https://emcee.readthedocs.io/en/stable/), depending the sampler that you used.
 
 ## Main contributors

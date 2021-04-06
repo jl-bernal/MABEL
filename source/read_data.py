@@ -123,14 +123,6 @@ def read_and_process_data(lkls):
 
         SN_covmat = cholesky(SN_covmat, lower=True, overwrite_a=True)
         cov['SN'] = SN_covmat
-
-    if lkls['mock_highz_StrongLens_IFU']:
-        datafile_zdzs=np.loadtxt(data_path+'/mock_highz_StrongLens_IFU/zdzs.txt')
-        datafile_DsDds=np.loadtxt(data_path+'/mock_highz_StrongLens_IFU/mockDsDds.txt')
-        datafile_sigma=np.loadtxt(data_path+'/mock_highz_StrongLens_IFU/mockDsDds_sigma.txt')
-
-        data['mock_highz_StrongLens_IFU'] = [datafile_zdzs, datafile_DsDds]
-        cov['mock_highz_StrongLens_IFU'] = datafile_sigma
         
     if lkls['Clocks']:
         datafile = np.loadtxt(data_path+'/Clocks/Clocks.txt')

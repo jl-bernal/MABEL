@@ -126,11 +126,6 @@ def check_zmax(self):
     '''
     Check that zmax cover the maximum redshift of the data
     '''
-    if self.lkls['mock_highz_StrongLens_IFU']:
-        if np.max(self.data['mock_highz_StrongLens_IFU'][0].T[1] > self.zmax):
-            raise ValueError('You have input zmax = {}, but mock_highz_StrongLens_IFU requires zmax >= {}.'.format(self.zmax,np.max(self.data['mock_highz_StrongLens_IFU'][0].T[1])))
-        if np.max(self.data['mock_highz_StrongLens_IFU'][0].T[1] > self.z_knots[-1]) and self.expansion == 'spline':
-            raise ValueError('You have input your last z_knot at z = {}, but mock_highz_StrongLens_IFU requires zmax >= {}.'.format(self.zmax,np.max(self.data['mock_highz_StrongLens_IFU'][0].T[1])))
     if self.lkls['BAO']:
         if self.zmax < self.data['BAO'][-1][0]:
             raise ValueError('You have input zmax = {}, but BAO requires zmax >= {}.'.format(self.zmax,self.data['BAO'][-1][0]))

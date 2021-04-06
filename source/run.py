@@ -81,7 +81,6 @@ class Run(object):
                                 SN                          SNeIa from Pantheon
                                 Clocks                      H(z) measurements from cosmic clocks
                                 rdprior                     A prior on rd
-                                mock_highz_StrongLens_IFU   Mock data for future high z strong lenses with IFU
                                           
         
     output and verbose:
@@ -99,7 +98,7 @@ class Run(object):
                  expansion = 'flatLCDM',flat = True,
                  zmax = 2.4, Nknots = 6, z_knots = [0.,0.3,0.6,1.,1.5,2.4],
                  lkls = dict(H0prior = False, rdprior = False,BAO = False, SN = False, 
-                             mock_highz_StrongLens_IFU = False, Clocks = False),
+                             Clocks = False),
                  output_root = "output/default", verbose_data = False, verbose_run = False):
                  
         # Get list of input values to check type and units

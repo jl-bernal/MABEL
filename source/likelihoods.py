@@ -75,9 +75,6 @@ def ln_lkls(theta,self):
         
     if self.lkls['SN']:
         chi2 += chi2_SN(self.data['SN'],self.cov['SN'],DM,params)
-
-    if self.lkls['mock_highz_StrongLens_IFU']:
-        chi2 += chi2_mock_highz_StrongLens_IFU(self.data['mock_highz_StrongLens_IFU'],self.cov['mock_highz_StrongLens_IFU'],DM,params)
         
     if self.lkls['Clocks']:
         chi2 += chi2_clocks(self.data['Clocks'],self.cov['Clocks'],self,params)
@@ -191,20 +188,6 @@ def chi2_SN(data,cov,DM,params):
         residuals = solve_triangular(cov,residuals,lower=True,
                                      check_finite=False)
         return (residuals**2.).sum()
-        
-
-# mock_highz_StrongLens_IFU
-#----------------------------
-def chi2_mock_highz_StrongLens_IFU(data,cov,DM,params):
-    '''
-    Chi2 from high z strong lenses with IFU
-    Assuming independent measurements!
-    '''
-    z_d, z_s = data[0].T[0], data[0].T[1]
-    theo_vec_Dds = get_angular_dist_z1z2(DM, params, z_d, z_s)
-    theo_vec_Ds = DM(z_s) / (1 + z_s)
-    DsDds = theo_vec_Ds / theo_vec_Dds
-    return np.sum(((DsDds - data[1])/cov)**2)
     
 
 # Clocks
