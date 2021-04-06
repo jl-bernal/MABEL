@@ -80,6 +80,8 @@ Besides standard packages as numpy, scipy, os, pandas and matplotlib, MABEL uses
 - deepdish.
 - numexpr.
 
+**Warning!** deepdish.io.save uses hdf5io.py, which in turn uses pandas.Panel. This attribute has been removed from pandas in versions >= v1.2.0. As far as I know, this is going to be fixed in the near future (see [here](https://github.com/uchicago-cs/deepdish/issues/45)), but in the meantime please make sure to use MABEL within an environment with pandas version < v1.2.0. 
+
 ## Usage
 
 You are free to use MABEL in your research, but please refer to this GitHub repository and cite:
