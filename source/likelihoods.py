@@ -68,7 +68,7 @@ def ln_lkls(theta,self):
         chi2 += chi2_prior(self.data['H0prior'],self.cov['H0prior'],params['H0'])
         
     if self.lkls['rdprior']:
-        chi2 += chi2_prior(self.data['rs'],self.cov['rs'],params['rs'])
+        chi2 += chi2_prior(self.data['rdprior'],self.cov['rdprior'],params['rs'])
         
     if self.lkls['BAO']:
         chi2 += chi2_BAO(self.data['BAO'],self.cov['BAO'],self,DM,params)
