@@ -34,7 +34,7 @@ def read_and_process_data(lkls):
             cov['H0prior'] = datafile[1]
             
     if lkls['rdprior']:
-        datafile = np.loadtxt(data_path+'/H0prior/H0prior.txt')
+        datafile = np.loadtxt(data_path+'/rdprior/rdprior.txt')
         try:
             data['rdprior'] = datafile[:,0]
             cov['rdprior'] = datafile[:,1]
